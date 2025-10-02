@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.1/core.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
+    <title>Uno's Coffee Shop</title>
+    <style>
+        /* General Styles */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e6ebf5 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(to right, #278342, #c0e47e);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 0.8rem 1rem;
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            padding: 8px 15px !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: #cfe2ff !important;
+            transform: translateY(-2px);
+        }
+        
+        .navbar-toggler {
+            border-color: rgba(210, 49, 49, 0.949);
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .active {
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .nav-item {
+            margin: 0 5px;
+        }
+
+        .blue-theme {
+            --bs-primary: #4f6d9a;
+            --bs-primary-rgb: 13, 110, 253;
+            --bs-primary-bg-subtle: #cfe2ff;
+        }
+        
+        .order-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        .menu-item {
+            border-left: 3px solid var(--bs-primary);
+            margin-bottom: 15px;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .food-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .menu-text {
+            flex-grow: 1;
+        }
+        
+        .price-tag {
+            font-weight: bold;
+            color: var(--bs-primary);
+        }
+        
+        /* Back Button */
+        .back-btn {
+            background-color: #fd710d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .back-btn:hover {
+            background-color: #e5660c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body class="blue-theme">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-coffee me-2"></i>Uno's Coffee Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="ordering_form.html">Order Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Learn About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Check out our wide range of food we can offer! Use your tax money as payment, though!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container py-5">
+        <div class="order-container p-4 mb-4">
+            <h1 class="text-primary mb-4 text-center"><s>Flood Control </s>Food Ordering System</h1>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-primary mb-3">Menu:</h3>
+                    
+                    <div class="form-check menu-item">
+                        <img src="trufflechickenpasta.jpg" class="food-img" alt="Truffle Chicken Pasta">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item1" value=790.99>
+                            <label class="form-check-label" for="item1">Truffle Chicken Pasta</label>
+                            <div class="price-tag">₱790.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="tomahawk.jpg" class="food-img" alt="Tomahawk Steak w/ Mashed Potatoes and Caesar Salad">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item2" value=1500.00>
+                            <label class="form-check-label" for="item2">Tomahawk Steak w/ Mashed Potatoes and Caesar Salad</label>
+                            <div class="price-tag">₱1500.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="garlicbread.jpg" class="food-img" alt="Garlic Bread">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item3" value=50>
+                            <label class="form-check-label" for="item3">Garlic Bread</label>
+                            <div class="price-tag">₱50.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="latte.jpg" class="food-img" alt="Iced/Hot Latte">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item4" value=30>
+                            <label class="form-check-label" for="item4">Iced Tea</label>
+                            <div class="price-tag">₱30.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check menu-item">
+                        <img src="sparklingwater.jpg" class="food-img" alt="Sparkling Water">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=20>
+                            <label class="form-check-label" for="item5">Sparkling Water</label>
+                            <div class="price-tag">₱20.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="matchabubbletea.jpg" class="food-img" alt="Matcha Bubble Tea">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=120>
+                            <label class="form-check-label" for="item5">Matcha Bubble Tea</label>
+                            <div class="price-tag">₱120.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="espresso.jpg" class="food-img" alt="Espresso">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=100>
+                            <label class="form-check-label" for="item5">Espresso</label>
+                            <div class="price-tag">₱100.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="cappucino.jpg" class="food-img" alt="Cappuccino">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=130>
+                            <label class="form-check-label" for="item5">Cappuccino</label>
+                            <div class="price-tag">₱130.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="cheesecake.jpg" class="food-img" alt="Cheesecake">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=250>
+                            <label class="form-check-label" for="item5">Cheesecake</label>
+                            <div class="price-tag">₱250.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="chocolavacake.jpg" class="food-img" alt="Chocolate Lava Cake">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=300>
+                            <label class="form-check-label" for="item5">Chocolate Lava Cake</label>
+                            <div class="price-tag">₱300.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="tiramisu.jpg" class="food-img" alt="Tiramisu">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=280>
+                            <label class="form-check-label" for="item5">Tiramisu</label>
+                            <div class="price-tag">₱280.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="bruschetta.jpg" class="food-img" alt="Bruschetta">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=150>
+                            <label class="form-check-label" for="item5">Bruschetta</label>
+                            <div class="price-tag">₱150.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="stuffedmushrooms.jpg" class="food-img" alt="Stuffed Mushrooms">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=200>
+                            <label class="form-check-label" for="item5">Stuffed Mushrooms</label>
+                            <div class="price-tag">₱200.00</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check menu-item">
+                        <img src="garlicknots.jpg" class="food-img" alt="Garlic Knots">
+                        <div class="menu-text">
+                            <input class="form-check-input" type="checkbox" id="item5" value=100>
+                            <label class="form-check-label" for="item5">Garlic Knots</label>
+                            <div class="price-tag">₱100.00</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-primary mb-3">Customer Details:</h3>
+                    <div class="mb-3">
+                        <label for="customer" class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" id="customer" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_number" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control" id="contact_number" placeholder="Enter your contact number">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
+                <button class="btn btn-primary btn-lg" type="submit" py-click="create_order">Create Order</button>
+            </div>
+        </div>
+        
+        <div class="order-container p-4">
+            <h3 class="text-primary mb-3">Order Summary:</h3>
+            <div id="order_output1" class="mb-2"></div>
+            <div id="order_output2" class="mb-2"></div>
+            <div id="order_output3" class="mb-2"></div>
+            <div id="show" class="h4 text-primary mt-3"></div>
+        </div>
+    </div>
+    
+    <center>
+        <a href="index.html">
+            <button class="back-btn">
+                <i class="fas fa-arrow-left me-2"></i>Back to Home
+            </button>
+        </a>
+    </center>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="py" src="main2.py"></script>
+    <script type="py" src="main.py"></script>
+</body>
+</html>

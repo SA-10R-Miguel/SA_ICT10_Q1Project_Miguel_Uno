@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uno's Coffee Shop (KURAKOT VERSION!!)</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+        .recipe-category {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Uno's Coffee Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Check out our wide range of food we can offer! Use your tax money as payment, though!</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ordering_form.html">Order Now!</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Add search bar -->
+            <form class="d-flex">
+                  <input class="form-control" type="text" placeholder="Search anything">
+
+                  <button class="btn btn-success" type="button">Search</button>
+            </form>      
+        </div>
+    </nav>
+
+<div style="text-align: center;">
+<h1>Welcome to Uno's Coffee Shop! Ang coffee shop ng mga kurakot!</h1>
+<p>Where you will find all kinds of simple cafe food, but MUCH more expensive!!</p>
+<h4>NOTE: This coffee shop is supported by DPWH.</h4>
+</div>
+
+<br>
+    <!-- Home Section -->
+    <div id="home" class="container">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="chocolavacake.jpg" class="d-block w-100" alt="Chocolate Lava Cake">
+                    <div class="carousel-caption">
+                        <h3 style="color: black;">Chocolate Lava Cake</h3>
+                        <p style="color: black;">Indulge in this gooey, chocolatey homemade cake! The funds used for baking this are from taxpayer's money.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="trufflechickenpasta.jpg" class="d-block w-100" alt="Truffle Chicken Pasta">
+                    <div class="carousel-caption">
+                        <h3 style="color: black;">Truffle Chicken Pasta</h3>
+                        <p style="color: black;">Your go-to lunch! Secretly funded by Sarah Discaya.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="matchabubbletea.jpg" class="d-block w-100" alt="Matcha Bubble Tea">
+                    <div class="carousel-caption">
+                        <h3 style="color: black;">Matcha Bubble Tea</h3>
+                        <p style="color: black;">Hop on the trend by sipping this delicacy and fly to Madrid like Zaldy Co!</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+     <script type="py" src="main.py"></script>
+</body>
+</html>

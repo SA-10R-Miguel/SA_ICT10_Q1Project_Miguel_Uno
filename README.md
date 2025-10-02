@@ -1,1 +1,1 @@
-# SA_ICT10_Q1Project_Miguel_Uno
+# SA_ICT9Ruby_Q2PROJ_Miguel_Juan
